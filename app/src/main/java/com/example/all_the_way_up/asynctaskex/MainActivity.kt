@@ -2,6 +2,7 @@ package com.example.all_the_way_up.asynctaskex
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
@@ -19,6 +20,13 @@ class MainActivity : AppCompatActivity() {
         context = this
 
         backgrounder().execute()
+
+        startNewActivity(context)
+    }
+
+    private fun startNewActivity(context: Context) {
+        val intent = Intent(this, newlyout::class.java)
+        startActivity(intent)
     }
 
     inner class backgrounder : AsyncTask<Void, Void, String>() {
